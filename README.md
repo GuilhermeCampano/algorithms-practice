@@ -1,1 +1,1 @@
-Initial commit
+Functions folder contains problem solver patterns

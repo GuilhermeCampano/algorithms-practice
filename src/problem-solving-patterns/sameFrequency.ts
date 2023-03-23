@@ -1,3 +1,8 @@
+/**
+ * Frequency Counter Pattern
+ * It should return true if every value in the first array has it's corresponding
+ * value squared in the second array
+ */
 export function sameFrequency(number1: number, number2: number): boolean {
   const text1 = number1.toString();
   const text2 = number2.toString();
