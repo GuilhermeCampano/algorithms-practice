@@ -6,14 +6,14 @@ export function anagram(string1: string, string2: string) {
   if (string1.length !== string2.length) {
     return false;
   }
-  let occurances = {};
+  const occurances = {};
   for (let i = 0; i < string1.length; i++) {
-    let char = string1[i];
+    const char = string1[i];
     occurances[char] = occurances[char] ? (occurances[char] += 1) : 1;
   }
 
   for (let i = 0; i < string2.length; i++) {
-    let char = string2[i];
+    const char = string2[i];
     if (!occurances[char]) {
       return false;
     } else {

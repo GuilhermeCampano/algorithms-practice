@@ -1,9 +1,9 @@
 import { swap } from './swap';
 
-describe("swap", () => {
-  test('something', () => {
-    const array = [5, 10, 15];
-    swap(array, 0, 1);
-    expect(array).toEqual([10,5,15]);
-  })
+describe('swap', () => {
+  it('should swap two elements in an array', () => {
+    const array = [1, 2, 3, 4, 5];
+    swap(array, 0, 4);
+    expect(array).toEqual([5, 2, 3, 4, 1]);
+  });
 });

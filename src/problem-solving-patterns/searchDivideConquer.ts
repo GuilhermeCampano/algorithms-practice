@@ -4,8 +4,8 @@ export function searchDivideConquer(array: number[], target: number): number {
   let max = array.length - 1;
 
   while (min <= max) {
-    let middle = Math.floor((min + max) / 2);
-    let middleValue = array[middle];
+    const middle = Math.floor((min + max) / 2);
+    const middleValue = array[middle];
 
     if (middleValue < target) {
       min = middle + 1;

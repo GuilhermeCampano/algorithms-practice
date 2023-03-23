@@ -11,11 +11,11 @@ export function sameFrequency(number1: number, number2: number): boolean {
     return false;
   }
 
-  let frequency1 = {};
-  let frequency2 = {};
+  const frequency1 = {};
+  const frequency2 = {};
 
-  let textArray1 = text1.split("");
-  let textArray2 = text2.split("");
+  const textArray1 = text1.split('');
+  const textArray2 = text2.split('');
 
   textArray1.forEach((val) => {
     frequency1[val] = (frequency1[val] || 0) + 1;
@@ -25,7 +25,7 @@ export function sameFrequency(number1: number, number2: number): boolean {
     frequency2[val] = (frequency2[val] || 0) + 1;
   });
 
-  for (let key in frequency1) {
+  for (const key in frequency1) {
     if (!frequency2[key]) {
       return false;
     }

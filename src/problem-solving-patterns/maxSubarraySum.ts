@@ -7,7 +7,7 @@ export function maxSubarraySum(array: number[], target: number): number | null {
   }
   let currentTotal = total;
   for (let i = target; i < array.length; i++) {
-    let j = i - target;
+    const j = i - target;
     currentTotal += array[i] - array[j];
     total = Math.max(total, currentTotal);
   }

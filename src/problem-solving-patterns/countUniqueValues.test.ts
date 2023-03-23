@@ -1,4 +1,4 @@
-import { countUniqueValues } from "./countUniqueValues";
+import { countUniqueValues } from './countUniqueValues';
 
 describe('countUniqueValues', () => {
   test.each`
