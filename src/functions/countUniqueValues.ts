@@ -1,5 +1,5 @@
 /**
- * Count Unique Values of an array
+ * Count unique values in a sorted array
  */
 export function countUniqueValues(array: Array<number | string>): number {
   if (array.length === 0) return 0;
