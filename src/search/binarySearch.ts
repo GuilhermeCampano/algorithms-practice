@@ -3,7 +3,7 @@
  * Time complexity O(log n) 16 elements take 4 steps and 32 elements 5 steps
  * Space Complexity O(1)
  */
-export function binarySearch(array: number[], value: number) {
+export function binarySearch(array: number[], value: number): number {
   let leftPointer = 0;
   let rightPointer = array.length - 1;
 

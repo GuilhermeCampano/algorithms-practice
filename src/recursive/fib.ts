@@ -8,11 +8,10 @@
 //   }
 //   factorial(number);
 
-//   console.log(factorialArray);
 //   return factorialArray.sort()[number - 1];
 // }
 
-export function fib(n) {
+export function fib(n = 0): number {
   if (n <= 2) return 1;
   return fib(n - 1) + fib(n - 2);
 }
