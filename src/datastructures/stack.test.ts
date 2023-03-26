@@ -53,7 +53,7 @@ describe('Stack', () => {
       expect(stack.first?.value).toBe(2);
       expect(stack.first?.next?.value).toBe(1);
       expect(stack.length).toBe(2);
-    });
+    }); 
   });
 
 });

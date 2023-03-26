@@ -1,8 +1,8 @@
-import { SinglyLinkedList } from "./singlyLinkedList";
+import { SinglyLinkedList } from './singlyLinkedList';
 
-describe("Singly Linked List", () => {
-  describe("push", () => {
-    it("should have inserted the first node", () => {
+describe('Singly Linked List', () => {
+  describe('push', () => {
+    it('should have inserted the first node', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
 
@@ -10,7 +10,7 @@ describe("Singly Linked List", () => {
       expect(singlyLinkedList.tail.value).toEqual(1);
     });
 
-    it("should have inserted the second node", () => {
+    it('should have inserted the second node', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
       singlyLinkedList.push(2);
@@ -21,7 +21,7 @@ describe("Singly Linked List", () => {
       expect(singlyLinkedList.tail.value).toEqual(2);
     });
 
-    it("should have inserted 5 nodes", () => {
+    it('should have inserted 5 nodes', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
       singlyLinkedList.push(2);
@@ -38,13 +38,13 @@ describe("Singly Linked List", () => {
     });
   });
 
-  describe("pop", () => {
-    it("should return undefined if the list has no nodes", () => {
+  describe('pop', () => {
+    it('should return undefined if the list has no nodes', () => {
       const singlyLinkedList = new SinglyLinkedList();
       expect(singlyLinkedList.pop()).toEqual(undefined);
     });
 
-    it("should remove the last node", () => {
+    it('should remove the last node', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
       singlyLinkedList.push(2);
@@ -54,7 +54,7 @@ describe("Singly Linked List", () => {
       expect(singlyLinkedList.tail.value).toEqual(2);
     });
 
-    it("should remove the only node", () => {
+    it('should remove the only node', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
 
@@ -64,14 +64,14 @@ describe("Singly Linked List", () => {
     });
   });
 
-  describe("shift", () => {
-    it("should return undefined if the list has no nodes", () => {
+  describe('shift', () => {
+    it('should return undefined if the list has no nodes', () => {
       const singlyLinkedList = new SinglyLinkedList();
       expect(singlyLinkedList.shift()).toEqual(undefined);
       expect(singlyLinkedList.length).toEqual(0);
     });
 
-    it("should remove the first node", () => {
+    it('should remove the first node', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
       singlyLinkedList.push(2);
@@ -81,7 +81,7 @@ describe("Singly Linked List", () => {
       expect(singlyLinkedList.length).toEqual(1);
     });
 
-    it("should remove the only node", () => {
+    it('should remove the only node', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
 
@@ -91,8 +91,8 @@ describe("Singly Linked List", () => {
     });
   });
 
-  describe("unshift", () => {
-    it("should have inserted the first node", () => {
+  describe('unshift', () => {
+    it('should have inserted the first node', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.unshift(1);
 
@@ -100,7 +100,7 @@ describe("Singly Linked List", () => {
       expect(singlyLinkedList.tail.value).toEqual(1);
     });
 
-    it("should have inserted the second node at the beggining", () => {
+    it('should have inserted the second node at the beggining', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
       singlyLinkedList.push(2);
@@ -113,19 +113,19 @@ describe("Singly Linked List", () => {
     });
   });
 
-  describe("get", () => {
-    it("should return null if there is no node", () => {
+  describe('get', () => {
+    it('should return null if there is no node', () => {
       const singlyLinkedList = new SinglyLinkedList();
       expect(singlyLinkedList.get(10)).toEqual(null);
     });
 
-    it("should return null if there the node does not exist", () => {
+    it('should return null if there the node does not exist', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
       expect(singlyLinkedList.get(100)).toEqual(null);
     });
 
-    it("should return the correspoding node of the index", () => {
+    it('should return the correspoding node of the index', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
       singlyLinkedList.push(2);
@@ -140,99 +140,99 @@ describe("Singly Linked List", () => {
     });
   });
 
-  describe("set", () => {
-    it("should return false the given node is not found", () => {
+  describe('set', () => {
+    it('should return false the given node is not found', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(1);
       expect(singlyLinkedList.set(100, 2)).toEqual(false);
     });
 
-    it("should update the value of a given node", () => {
+    it('should update the value of a given node', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("first node");
-      singlyLinkedList.push("second node");
-      expect(singlyLinkedList.set(1, "updated second node")).toEqual(true);
-      expect(singlyLinkedList.get(1).value).toEqual("updated second node");
+      singlyLinkedList.push('first node');
+      singlyLinkedList.push('second node');
+      expect(singlyLinkedList.set(1, 'updated second node')).toEqual(true);
+      expect(singlyLinkedList.get(1).value).toEqual('updated second node');
     });
   });
 
-  describe("insert", () => {
-    it("should return false if index is less than 0", () => {
+  describe('insert', () => {
+    it('should return false if index is less than 0', () => {
       const singlyLinkedList = new SinglyLinkedList();
       expect(singlyLinkedList.insert(-5, 100)).toEqual(false);
     });
 
-    it("should return false if index is greater than the length", () => {
+    it('should return false if index is greater than the length', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("first node");
+      singlyLinkedList.push('first node');
       expect(singlyLinkedList.insert(5, 100)).toEqual(false);
     });
 
-    it("should return true if the inserted node is the last one", () => {
+    it('should return true if the inserted node is the last one', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("first node");
-      expect(singlyLinkedList.insert(1, "last node")).toEqual(true);
-      expect(singlyLinkedList.tail.value).toEqual("last node");
+      singlyLinkedList.push('first node');
+      expect(singlyLinkedList.insert(1, 'last node')).toEqual(true);
+      expect(singlyLinkedList.tail.value).toEqual('last node');
     });
 
-    it("should return true if the inserted node is the first one", () => {
+    it('should return true if the inserted node is the first one', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("first node");
-      expect(singlyLinkedList.insert(0, "new first node node")).toEqual(true);
-      expect(singlyLinkedList.head.value).toEqual("new first node node");
+      singlyLinkedList.push('first node');
+      expect(singlyLinkedList.insert(0, 'new first node node')).toEqual(true);
+      expect(singlyLinkedList.head.value).toEqual('new first node node');
     });
 
-    it("should return true if the new node is inserted in the middel", () => {
+    it('should return true if the new node is inserted in the middel', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("first node");
-      singlyLinkedList.push("second node");
+      singlyLinkedList.push('first node');
+      singlyLinkedList.push('second node');
 
-      expect(singlyLinkedList.insert(1, "middle node")).toEqual(true);
-      expect(singlyLinkedList.get(0).value).toEqual("first node");
-      expect(singlyLinkedList.get(1).value).toEqual("middle node");
-      expect(singlyLinkedList.get(2).value).toEqual("second node");
+      expect(singlyLinkedList.insert(1, 'middle node')).toEqual(true);
+      expect(singlyLinkedList.get(0).value).toEqual('first node');
+      expect(singlyLinkedList.get(1).value).toEqual('middle node');
+      expect(singlyLinkedList.get(2).value).toEqual('second node');
     });
   });
 
-  describe("remove", () => {
-    it("should return null if index is less than 0", () => {
+  describe('remove', () => {
+    it('should return null if index is less than 0', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("node");
+      singlyLinkedList.push('node');
       expect(singlyLinkedList.remove(-1)).toEqual(null);
     });
 
-    it("should return null if index is greater than list length", () => {
+    it('should return null if index is greater than list length', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("node");
+      singlyLinkedList.push('node');
       expect(singlyLinkedList.remove(100)).toEqual(null);
     });
 
-    it("should remove the first node", () => {
+    it('should remove the first node', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("node");
-      expect(singlyLinkedList.remove(0).value).toEqual("node");
+      singlyLinkedList.push('node');
+      expect(singlyLinkedList.remove(0).value).toEqual('node');
     });
 
-    it("should remove the last node", () => {
+    it('should remove the last node', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("node");
-      singlyLinkedList.push("last node");
-      expect(singlyLinkedList.remove(1).value).toEqual("last node");
+      singlyLinkedList.push('node');
+      singlyLinkedList.push('last node');
+      expect(singlyLinkedList.remove(1).value).toEqual('last node');
     });
 
-    it("should remove a node in the middle", () => {
+    it('should remove a node in the middle', () => {
       const singlyLinkedList = new SinglyLinkedList();
-      singlyLinkedList.push("first node");
-      singlyLinkedList.push("middle node");
-      singlyLinkedList.push("last node");
+      singlyLinkedList.push('first node');
+      singlyLinkedList.push('middle node');
+      singlyLinkedList.push('last node');
 
-      expect(singlyLinkedList.remove(1).value).toEqual("middle node");
+      expect(singlyLinkedList.remove(1).value).toEqual('middle node');
       expect(singlyLinkedList.length).toEqual(2);
     });
   });
 
-  describe("reverse", () => {
-    it("should have reverse the order of nodes", () => {
+  describe('reverse', () => {
+    it('should have reverse the order of nodes', () => {
       const singlyLinkedList = new SinglyLinkedList();
       singlyLinkedList.push(100);
       singlyLinkedList.push(200);
