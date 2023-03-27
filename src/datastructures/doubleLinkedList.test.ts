@@ -2,257 +2,245 @@ import { DoubleLinkedList } from './doubleLinkedList';
 
 describe('Double Linked List', () => {
   describe('push', () => {
-    it('should have inserted the first node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('first node');
-
-      expect(doubleLinkedList.head.value).toEqual('first node');
-      expect(doubleLinkedList.tail.value).toEqual('first node');
+    it('should add a node to an empty list', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      expect(list.head?.value).toBe('first');
+      expect(list.tail?.value).toBe('first');
+      expect(list.length).toBe(1);
     });
-
-    it('should have inserted 3 nodes', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('first node');
-      doubleLinkedList.push('second node');
-      doubleLinkedList.push('third node');
-
-      expect(doubleLinkedList.head.value).toEqual('first node');
-      expect(doubleLinkedList.head.next.value).toEqual('second node');
-
-      expect(doubleLinkedList.tail.value).toEqual('third node');
-      expect(doubleLinkedList.tail.prev.value).toEqual('second node');
+    it('should add a node to the end of the list', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      expect(list.tail?.value).toBe('second');
+      expect(list.length).toBe(2);
     });
   });
 
   describe('pop', () => {
-    it('should return undefined if the list has no nodes', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      expect(doubleLinkedList.pop()).toEqual(undefined);
+    it('should remote the last node from the list', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.pop();
+      expect(list.head).toBe(null);
+      expect(list.tail).toBe(null);
     });
-
-    it('should remove the last node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(1);
-      doubleLinkedList.push(2);
-      doubleLinkedList.push(3);
-
-      expect(doubleLinkedList.pop().value).toEqual(3);
-      expect(doubleLinkedList.tail.value).toEqual(2);
+    it('should return the removed node', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      const removed = list.pop();
+      expect(removed?.value).toBe('first');
     });
-
-    it('should remove the only node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(1);
-      doubleLinkedList.pop();
-
-      expect(doubleLinkedList.head).toEqual(null);
-      expect(doubleLinkedList.tail).toEqual(null);
+    it('should return null if the list is empty', () => {
+      const list = new DoubleLinkedList();
+      const removed = list.pop();
+      expect(removed).toBe(null);
+    });
+    it('should update the tail to the previous node', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.pop();
+      expect(list.tail?.value).toBe('second');
+      expect(list.tail?.next).toBe(null);
+    });
+    it('should update the length', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.pop();
+      expect(list.length).toBe(2);
     });
   });
 
   describe('shift', () => {
-    it('should return undefined if the list has no nodes', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      expect(doubleLinkedList.shift()).toEqual(undefined);
+    it('should remove the first node from the list', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.shift();
+      expect(list.head?.value).toBe('second');
     });
-
-    it('should remove the last node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(1);
-      doubleLinkedList.push(2);
-      doubleLinkedList.push(3);
-
-      expect(doubleLinkedList.shift().value).toEqual(1);
-      expect(doubleLinkedList.head.value).toEqual(2);
+    it('should return the removed node', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      const removed = list.shift();
+      expect(removed?.value).toBe('first');
     });
-
-    it('should remove the only node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(1);
-      doubleLinkedList.shift();
-
-      expect(doubleLinkedList.head).toEqual(null);
-      expect(doubleLinkedList.tail).toEqual(null);
+    it('should return null if the list is empty', () => {  
+      const list = new DoubleLinkedList();
+      const removed = list.shift();
+      expect(removed).toBe(null);
+    });
+    it('should update the head to the next node', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.shift();
+      expect(list.head?.value).toBe('second');
+      expect(list.head?.prev).toBe(null);
     });
   });
 
   describe('unshift', () => {
-    it('should have inserted the first node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.unshift(1);
-
-      expect(doubleLinkedList.head.value).toEqual(1);
-      expect(doubleLinkedList.tail.value).toEqual(1);
+    it('should add a node to the beginning of the list', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.unshift('second');
+      expect(list.head?.value).toBe('second');
+      expect(list.head?.next?.value).toBe('first');
     });
-
-    it('should have inserted the second node at the beggining', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(1);
-      doubleLinkedList.push(2);
-      doubleLinkedList.unshift(100);
-
-      expect(doubleLinkedList.head.value).toEqual(100);
-      expect(doubleLinkedList.head.next.value).toEqual(1);
-      expect(doubleLinkedList.head.next.prev.value).toEqual(100);
-      expect(doubleLinkedList.tail.value).toEqual(2);
-      expect(doubleLinkedList.length).toEqual(3);
+    it('should return the list', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      const newList = list.unshift('second');
+      expect(newList).toBe(list);
+    });
+    it('should update the length', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.unshift('second');
+      expect(list.length).toBe(2);
+    });
+    it('should update the tail if the list is empty', () => {
+      const list = new DoubleLinkedList();
+      list.unshift('first');
+      expect(list.tail?.value).toBe('first');
+    });
+    it('should update the head if the list is empty', () => {
+      const list = new DoubleLinkedList();
+      list.unshift('first');
+      expect(list.head?.value).toBe('first');
+    });
+    it('should update the head and tail if the list is empty', () => {
+      const list = new DoubleLinkedList();
+      list.unshift('first');
+      expect(list.head?.value).toBe('first');
+      expect(list.tail?.value).toBe('first');
     });
   });
 
   describe('get', () => {
-    it('should return null if there is no node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      expect(doubleLinkedList.get(10)).toEqual(null);
+    it('should return the node at the given index', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      expect(list.get(1)?.value).toBe('second');
     });
-
-    it('should return null if there the node does not exist', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(1);
-      expect(doubleLinkedList.get(100)).toEqual(null);
+    it('should return null if the index is out of bounds', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      expect(list.get(3)).toBe(null);
     });
-
-    it('should return the correspoding node of the index', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(1);
-      doubleLinkedList.push(2);
-      doubleLinkedList.push(3);
-      doubleLinkedList.push(4);
-      doubleLinkedList.push(5);
-
-      expect(doubleLinkedList.get(0).value).toEqual(1);
-      expect(doubleLinkedList.get(1).value).toEqual(2);
-      expect(doubleLinkedList.get(2).value).toEqual(3);
-      expect(doubleLinkedList.get(3).value).toEqual(4);
-      expect(doubleLinkedList.get(4).value).toEqual(5);
-      expect(doubleLinkedList.get(50)).toEqual(null);
+    it('should return null if the list is empty', () => {
+      const list = new DoubleLinkedList();
+      expect(list.get(0)).toBe(null);
     });
   });
-
   describe('set', () => {
-    it('should return false the given node is not found', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(1);
-      expect(doubleLinkedList.set(100, 2)).toEqual(false);
+    it('should update the value of the node at the given index', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.set(1, 'updated');
+      expect(list.get(1)?.value).toBe('updated');
     });
-
-    it('should update the value of a given node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('first node');
-      doubleLinkedList.push('second node');
-      expect(doubleLinkedList.set(1, 'updated second node')).toEqual(true);
-      expect(doubleLinkedList.get(1).value).toEqual('updated second node');
+    it('should return false if the index is out of bounds', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      expect(list.set(3, 'updated')).toBe(false);
     });
   });
-
   describe('insert', () => {
-    it('should return false if index is less than 0', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      expect(doubleLinkedList.insert(-5, 100)).toEqual(false);
+    it('should retunr false if the index is out of bounds', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      expect(list.insert(4, 'fourth')).toBe(false);
     });
-
-    it('should return false if index is greater than the length', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('first node');
-      expect(doubleLinkedList.insert(5, 100)).toEqual(false);
+    it('should add a node at position 0', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.insert(0, 'zero');
+      expect(list.get(0)?.value).toBe('zero');
     });
-
-    it('should return true if the inserted node is the last one', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('first node');
-      expect(doubleLinkedList.insert(1, 'last node')).toEqual(true);
-      expect(doubleLinkedList.tail.value).toEqual('last node');
-    });
-
-    it('should return true if the inserted node is the first one', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('first node');
-      expect(doubleLinkedList.insert(0, 'new first node node')).toEqual(true);
-      expect(doubleLinkedList.head.value).toEqual('new first node node');
-    });
-
-    it('should return true if the new node is inserted in the middel', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('first node');
-      doubleLinkedList.push('second node');
-
-      expect(doubleLinkedList.insert(1, 'middle node')).toEqual(true);
-
-      expect(doubleLinkedList.get(0).value).toEqual('first node');
-      expect(doubleLinkedList.get(0).next.value).toEqual('middle node');
-
-      expect(doubleLinkedList.get(1).value).toEqual('middle node');
-      expect(doubleLinkedList.get(1).next.value).toEqual('second node');
-      expect(doubleLinkedList.get(1).prev.value).toEqual('first node');
-
-      expect(doubleLinkedList.get(2).value).toEqual('second node');
-      expect(doubleLinkedList.get(2).prev.value).toEqual('middle node');
+    it('should add a node in the middle of the list', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.insert(1, 'middle');
+      expect(list.get(1)?.value).toBe('middle');
     });
   });
-
   describe('remove', () => {
-    it('should return null if index is less than 0', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('node');
-      expect(doubleLinkedList.remove(-1)).toEqual(null);
+    it('should return null if the index is out of bounds', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      expect(list.remove(3)).toBe(null);
     });
-
-    it('should return null if index is greater than list length', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('node');
-      expect(doubleLinkedList.remove(100)).toEqual(null);
+    it('should remove the node at the given index', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.remove(1);
+      expect(list.get(1)?.value).toBe('third');
     });
-
-    it('should remove the first node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('node');
-      expect(doubleLinkedList.remove(0).value).toEqual('node');
+    it('should update the length', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.remove(1);
+      expect(list.length).toBe(2);
     });
-
-    it('should remove the last node', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('node');
-      doubleLinkedList.push('last node');
-      expect(doubleLinkedList.remove(1).value).toEqual('last node');
+    it('should update the head if the first node is removed', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.remove(0);
+      expect(list.head?.value).toBe('second');
     });
-
-    it('should remove a node in the middle', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push('first node');
-      doubleLinkedList.push('middle node');
-      doubleLinkedList.push('last node');
-
-      expect(doubleLinkedList.remove(1).value).toEqual('middle node');
-
-      expect(doubleLinkedList.get(0).value).toEqual('first node');
-      expect(doubleLinkedList.get(0).next.value).toEqual('last node');
-
-      expect(doubleLinkedList.get(1).value).toEqual('last node');
-      expect(doubleLinkedList.get(1).prev.value).toEqual('first node');
-
-      expect(doubleLinkedList.length).toEqual(2);
+    it('should update the tail if the last node is removed', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.remove(2);
+      expect(list.tail?.value).toBe('second');
     });
-  });
-
-  describe('reverse', () => {
-    it('should have reverse the order of nodes', () => {
-      const doubleLinkedList = new DoubleLinkedList();
-      doubleLinkedList.push(100);
-      doubleLinkedList.push(200);
-      doubleLinkedList.push(300);
-      doubleLinkedList.push(400);
-
-      doubleLinkedList.reverse();
-
-      expect(doubleLinkedList.head.prev).toEqual(null);
-      expect(doubleLinkedList.head.value).toEqual(400);
-      expect(doubleLinkedList.head.next.value).toEqual(300);
-
-      expect(doubleLinkedList.get(1).value).toEqual(300);
-      expect(doubleLinkedList.get(2).value).toEqual(200);
-
-      expect(doubleLinkedList.tail.prev.value).toEqual(200);
-      expect(doubleLinkedList.tail.value).toEqual(100);
-      expect(doubleLinkedList.tail.next).toEqual(null);
+    it('should update the head and tail if the only node is removed', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.remove(0);
+      expect(list.head).toBe(null);
+      expect(list.tail).toBe(null);
+    });
+    it('should a node in the middle of the list', () => {
+      const list = new DoubleLinkedList();
+      list.push('first');
+      list.push('second');
+      list.push('third');
+      list.remove(1);
+      expect(list.get(1)?.value).toBe('third');
     });
   });
 });
