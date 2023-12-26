@@ -1,7 +1,7 @@
 /** 
-  * Given that I sorted the array, the averagePair function should return true
-  * when the number passed is the average of a pair of values
-  * and should return false if the passed thumber doesn't match any pair averagers 
+  Problem: Given a sorted array of integers and a target average, 
+  determine if there is a pair of values in the array where the average of the pair equals the target average
+  Problem Solving Patterns: Multiple Pointers
 */
 export function averagePair(array: number[], averageExists: number): boolean {
   if(array.length <= 0) {

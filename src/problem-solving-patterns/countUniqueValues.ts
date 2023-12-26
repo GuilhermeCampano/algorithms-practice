@@ -1,5 +1,6 @@
 /**
- * Count unique values in a sorted array
+ * Problem: Count the unique values in array of numbers
+ * Problem Solving Patterns: Multiple Pointers
  */
 export function countUniqueValues(array: Array<number | string>): number {
   if (array.length === 0) return 0;

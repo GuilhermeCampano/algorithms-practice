@@ -1,7 +1,6 @@
 /**
- * Frequency Counter Pattern
- * It should return true if every value in the first array has it's corresponding
- * value squared in the second array
+ * Problem: Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits.
+ * Problem Solving Patterns: Frequency Counter
  */
 export function sameFrequency(number1: number, number2: number): boolean {
   const text1 = number1.toString();

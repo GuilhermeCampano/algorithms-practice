@@ -1,6 +1,6 @@
 /**
- * Given two strings, write a function to determine if the second string is an
- * anagram of the first
+ * Problem: Given two strings, write a function to determine if the second string is an anagram of the first
+ * Problem Solving Patterns: Frequency Counter
 */
 export function anagram(string1: string, string2: string) {
   if (string1.length !== string2.length) {
