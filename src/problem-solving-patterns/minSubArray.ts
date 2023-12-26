@@ -1,3 +1,7 @@
+/**
+ * Problem: Given an array of integers and a number, find the minimum length of a contiguous subarray of which the sum is greater than or equal to the number passed to the function.
+ * Problem Solving Patterns: Sliding Window
+ */
 export function minSubArrayLen(array: number[], sum: number): number {
   let total = 0;
   let start = 0;

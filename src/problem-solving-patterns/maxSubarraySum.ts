@@ -1,3 +1,8 @@
+
+/**
+ * Problem: Given an array of integers and a number, find the maximum sum of a subarray with the length of the number passed to the function.
+ * Problem Solving Patterns: Sliding Window
+ */
 export function maxSubarraySum(array: number[], target: number): number | null {
   if (array.length < target) return null;
 

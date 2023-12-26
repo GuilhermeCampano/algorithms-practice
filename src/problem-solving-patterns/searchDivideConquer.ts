@@ -1,4 +1,8 @@
-// divide and conquer
+
+/**
+ * Problem: Given a sorted array of integers, write a function that accepts a value and returns the index where the value passed to the function is located. If the value is not found, return -1
+ * Problem Solving Patterns: Divide and Conquer
+ */
 export function searchDivideConquer(array: number[], target: number): number {
   let min = 0;
   let max = array.length - 1;

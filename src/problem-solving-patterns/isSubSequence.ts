@@ -1,6 +1,6 @@
 /**
- * Takes in two strings and checks whether the characters in the first string form
- * a subsequence of characters in the second string
+ * Problem:  The function should check whether the characters in the first string appear somewhere in the second string, without their order changing.
+ * Problem Solving Patterns: Multiple Pointers
  */
 export function isSubsequence(string1: string, string2: string): boolean {
   if (!string1) {
