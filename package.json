@@ -4,6 +4,8 @@
   "description": "",
   "scripts": {
     "test": "jest",
+    "test:verbose": "jest --verbose",
+    "test:coverage": "jest --coverage && npx http-server ./coverage/lcov-report/ -o -p 3000",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
