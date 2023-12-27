@@ -1,16 +1,11 @@
-//20. Valid Parentheses
+
 /**
-  Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ * 20. Valid Parentheses
+ * https://leetcode.com/problems/valid-parentheses/
+ * Time Complexity: O(n)
+*/
 
-An input string is valid if:
-
-Open brackets must be closed by the same type of brackets.
-Open brackets must be closed in the correct order.
-Every close bracket has a corresponding open bracket of the same type.
- 
- */
-
-export function isValid(s: string): boolean {
+export function isValid(text: string): boolean {
   const stack: string[] = [];
   const map: { [key: string]: string } = {
     '(': ')',
@@ -18,10 +13,10 @@ export function isValid(s: string): boolean {
     '{': '}',
   };
 
-  for (const char of s) {
-    const isOpeningBracket = map[char];
-    if (isOpeningBracket) {
-      stack.push(map[char]);
+  for (const char of text) {
+    const closingBracket = map[char];
+    if (closingBracket) {
+      stack.push(closingBracket);
     } else {
       const charPopped = stack.pop();
       if (charPopped !== char) {
@@ -32,12 +27,3 @@ export function isValid(s: string): boolean {
 
   return stack.length === 0;
 }
-
-/*
-  Time complexity: O(n)
-  Space complexity: O(n)
-  
-  (())[]
-  list  : ((
-  stack : 
-*/
