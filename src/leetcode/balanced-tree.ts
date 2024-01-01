@@ -7,15 +7,13 @@ import { TreeNode } from '../datastructures/binary-search-tree';
 
 
 function subtreeHeight(node: TreeNode | null): number {
-  if (!node) return 0;
+  if (!node) return 0; // base case
   
   const leftHeight = subtreeHeight(node.left);
-  if (leftHeight === -1) return -1; // left subtree is not balanced
-
   const rightHeight = subtreeHeight(node.right);
-  if (rightHeight === -1) return -1; // right subtree is not balanced
+  const heightDiff = Math.abs(leftHeight - rightHeight);
 
-  if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+  if (leftHeight === -1 || rightHeight === -1 || heightDiff > 1) return -1;
 
   return Math.max(leftHeight, rightHeight) + 1;
 }
