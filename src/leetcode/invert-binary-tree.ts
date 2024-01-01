@@ -2,16 +2,8 @@
  * 226. Invert Binary Tree
  * https://leetcode.com/problems/invert-binary-tree/
  */
-export class TreeNode {
-  val: number;
-  left: TreeNode | null;
-  right: TreeNode | null;
-  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
-    this.val = (val === undefined ? 0 : val);
-    this.left = (left === undefined ? null : left);
-    this.right = (right === undefined ? null : right);
-  }
-}
+
+import { TreeNode } from '../datastructures/binary-search-tree';
 
 function depthFirstSearch(root: TreeNode | null): void {
   if (!root?.left && !root?.right) return;

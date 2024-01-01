@@ -1,4 +1,5 @@
-import { TreeNode, invertTree } from './invert-binary-tree';
+import { TreeNode } from '../datastructures/binary-search-tree';
+import { invertTree } from './invert-binary-tree';
 
 describe('Invert Binary Tree', () => {
 

@@ -1,17 +1,16 @@
-export class Node {
-  value: number;
-  left: Node | null;
-  right: Node | null;
-
-  constructor(val: number) {
-    this.value = val;
-    this.left = null;
-    this.right = null;
+export class TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = (val === undefined ? 0 : val);
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right);
   }
 }
 
 export class BinarySearchTree {
-  root: Node | null;
+  root: TreeNode | null;
 
   constructor() {
     this.root = null;
@@ -32,23 +31,23 @@ export class BinarySearchTree {
    * a tree with 16 nodes will take 4 steps to find the node (log2(16) = 4 or 2^4 = 16)
    */
   insert(val: number): BinarySearchTree {
-    const newNode = new Node(val);
+    const newTreeNode = new TreeNode(val);
     if (!this.root) {
-      this.root = newNode;
+      this.root = newTreeNode;
       return this;
     }
-    let current: Node | null = this.root;
+    let current: TreeNode | null = this.root;
     while (current) {
-      if (val === current.value) return this;
-      if (val < current.value) {
+      if (val === current.val) return this;
+      if (val < current.val) {
         if (!current.left) {
-          current.left = newNode;
+          current.left = newTreeNode;
           return this;
         }
         current = current.left;
-      } else if (val > current.value) {
+      } else if (val > current.val) {
         if (!current.right) {
-          current.right = newNode;
+          current.right = newTreeNode;
           return this;
         }
         current = current.right;
@@ -57,14 +56,14 @@ export class BinarySearchTree {
     return this;
   }
 
-  find(val: number): Node | null {
+  find(val: number): TreeNode | null {
     if (!this.root) return null;
-    let current: Node | null = this.root;
+    let current: TreeNode | null = this.root;
     let found = false;
     while (current && !found) {
-      if (val < current.value) {
+      if (val < current.val) {
         current = current.left;
-      } else if (val > current.value) {
+      } else if (val > current.val) {
         current = current.right;
       } else {
         found = true;
@@ -76,12 +75,12 @@ export class BinarySearchTree {
 
   contains(val: number): boolean {
     if (!this.root) return false;
-    let current: Node | null = this.root;
+    let current: TreeNode | null = this.root;
     const found = false;
     while (current && !found) {
-      if (val < current.value) {
+      if (val < current.val) {
         current = current.left;
-      } else if (val > current.value) {
+      } else if (val > current.val) {
         current = current.right;
       } else {
         return true;
@@ -106,13 +105,13 @@ export class BinarySearchTree {
    * Therefore, the BFS traversal of this tree would be:
    * [10, 6, 15, 3, 8, 20, 30]
    */
-  bfs(): Node[] {
-    const data: Node[] = [];
-    const queue: Node[] = [];
+  bfs(): TreeNode[] {
+    const data: TreeNode[] = [];
+    const queue: TreeNode[] = [];
     let node = this.root;
     if (node) queue.push(node);
     while (queue.length) {
-      node = <Node>queue.shift()!;
+      node = <TreeNode>queue.shift()!;
       data.push(node);
       if (node.left) queue.push(node.left);
       if (node.right) queue.push(node.right);
@@ -135,10 +134,10 @@ export class BinarySearchTree {
    * Would be traversed in the following order:
    * [10, 6, 3, 8, 15, 20, 30]  
    */
-  dfsPreOrder(): Node[] {
-    const data: Node[] = [];
+  dfsPreOrder(): TreeNode[] {
+    const data: TreeNode[] = [];
     const current = this.root;
-    function traverse(node: Node | null) {
+    function traverse(node: TreeNode | null) {
       if (node) {
         data.push(node);
         if (node.left) traverse(node.left);
@@ -164,10 +163,10 @@ export class BinarySearchTree {
    * Would be traversed in the following order:
    * [3, 8, 6, 30, 20, 15, 10]
    **/
-  dfsPostOrder(): Node[] {
-    const data: Node[] = [];
+  dfsPostOrder(): TreeNode[] {
+    const data: TreeNode[] = [];
     const current = this.root;
-    function traverse(node: Node | null) {
+    function traverse(node: TreeNode | null) {
       if (node) {
         if (node.left) traverse(node.left);
         if (node.right) traverse(node.right);
@@ -193,10 +192,10 @@ export class BinarySearchTree {
    * Would be traversed in the following order:
    * [3, 6, 8, 10, 15, 20, 30]
    */
-  dfsInOrder(): Node[] {
-    const data: Node[] = [];
+  dfsInOrder(): TreeNode[] {
+    const data: TreeNode[] = [];
     const current = this.root;
-    function traverse(node: Node | null) {
+    function traverse(node: TreeNode | null) {
       if (node) {
         if (node.left) traverse(node.left);
         data.push(node);

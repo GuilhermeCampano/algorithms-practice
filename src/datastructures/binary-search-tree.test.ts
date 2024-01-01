@@ -1,7 +1,7 @@
-import { BinarySearchTree, Node } from './binary-search-tree';
+import { BinarySearchTree, TreeNode } from './binary-search-tree';
 
-function covertToNodeArray(nodes: Node[]): number[] {
-  return nodes.map((node: Node) => node.value);
+function covertToNodeArray(nodes: TreeNode[]): number[] {
+  return nodes.map((node: TreeNode) => node.val);
 
 }
 describe('BinarySearchTree', () => {
@@ -21,15 +21,15 @@ describe('BinarySearchTree', () => {
       });
 
       test('THEN the root should be 2', () => {
-        expect(tree.root?.value).toBe(2);
+        expect(tree.root?.val).toBe(2);
       });
 
       test('THEN the root left should be 1', () => {
-        expect(tree.root?.left?.value).toBe(1);
+        expect(tree.root?.left?.val).toBe(1);
       });
 
       test('THEN the root right should be 3', () => {
-        expect(tree.root?.right?.value).toBe(3);
+        expect(tree.root?.right?.val).toBe(3);
       });
     });
 
@@ -52,22 +52,22 @@ describe('BinarySearchTree', () => {
       });
 
       test('THEN the root should be 5', () => {
-        expect(tree.root?.value).toBe(5);
+        expect(tree.root?.val).toBe(5);
       });
 
       test('THEN the root left should be 3 and root right should be 7', () => {
-        expect(tree.root?.left?.value).toBe(3);
-        expect(tree.root?.right?.value).toBe(7);
+        expect(tree.root?.left?.val).toBe(3);
+        expect(tree.root?.right?.val).toBe(7);
       });
 
       test('THEN the left child of root left should be 2 and the right child should be 4', () => {
-        expect(tree.root?.left?.left?.value).toBe(2);
-        expect(tree.root?.left?.right?.value).toBe(4);
+        expect(tree.root?.left?.left?.val).toBe(2);
+        expect(tree.root?.left?.right?.val).toBe(4);
       });
 
       test('THEN the left child of root right should be 6 and the right child should be 8', () => {
-        expect(tree.root?.right?.left?.value).toBe(6);
-        expect(tree.root?.right?.right?.value).toBe(8);
+        expect(tree.root?.right?.left?.val).toBe(6);
+        expect(tree.root?.right?.right?.val).toBe(8);
       });
     });
   });
@@ -86,7 +86,7 @@ describe('BinarySearchTree', () => {
     test('WHEN I find the node with value 5 THEN it should return the node', () => {
       const node = tree.find(5);
       expect(node).not.toBeNull();
-      expect(node?.value).toBe(5);
+      expect(node?.val).toBe(5);
     });
 
     test('WHEN I find the node with value 3 THEN it should return null', () => {
@@ -97,7 +97,7 @@ describe('BinarySearchTree', () => {
     test('WHEN I find the node with value 6 THEN it should return the node', () => {
       const node = tree.find(6);
       expect(node).not.toBeNull();
-      expect(node?.value).toBe(6);
+      expect(node?.val).toBe(6);
     });
   });
 
