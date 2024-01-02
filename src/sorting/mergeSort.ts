@@ -1,5 +1,5 @@
 export function merge(sortedArray1: number[], sortedArray2: number[]): number[] {
-  const resultArray = [];
+  const resultArray: number[] = [];
   let i = 0;
   let j = 0;
   while (resultArray.length < sortedArray1.length + sortedArray2.length) {

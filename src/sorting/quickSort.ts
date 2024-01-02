@@ -15,7 +15,7 @@ export function pivotHelper(array, start = 0) {
 
 export function quickSort(array, left = 0, right = array.length - 1) {
   if (left < right) {
-    let pivotIndex = pivotHelper(array, left, right);
+    const pivotIndex = pivotHelper(array, left);
     //left
     quickSort(array, left, pivotIndex - 1);
     //right
