@@ -26,17 +26,15 @@ export class ListNode {
  * 
  * Time complexity: O(n)
  */
+
+function floydCycleFindingAlgorithm(tortoise: ListNode | null, hare: ListNode | null): boolean {
+  if (!tortoise || !hare) return false;
+  if (tortoise === hare) return true;
+  return floydCycleFindingAlgorithm(tortoise?.next || null, hare?.next?.next || null);
+}
+
+
 export function hasCycle(head: ListNode | null): boolean {
   if (!head) return false;
-
-  let tortoise: ListNode | null = head;
-  let hare: ListNode | null = head.next;
-
-  while (tortoise && hare) {
-    if (tortoise === hare) return true;
-    tortoise = tortoise.next;
-    hare = hare.next?.next || null;
-  }
-  
-  return false;
+  return floydCycleFindingAlgorithm(head, head.next);
 }
