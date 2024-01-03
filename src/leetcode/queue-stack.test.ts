@@ -9,13 +9,7 @@ describe('Queue using stack', () => {
 
   test('should push 1 to the queue', () => {
     myQueue.push(1);
-    expect(myQueue.queue).toEqual([1]);
-  });
-
-  test('should push 2 to the queue', () => {
-    myQueue.push(1);
-    myQueue.push(2);
-    expect(myQueue.queue).toEqual([1, 2]);
+    expect(myQueue.peek()).toBe(1);
   });
 
   test('should peek the front of the queue', () => {
@@ -28,7 +22,7 @@ describe('Queue using stack', () => {
     myQueue.push(1);
     myQueue.push(2);
     expect(myQueue.pop()).toBe(1);
-    expect(myQueue.queue).toEqual([2]);
+    expect(myQueue.peek()).toBe(2);
   });
 
   test('should check if the queue is empty', () => {
@@ -41,5 +35,16 @@ describe('Queue using stack', () => {
     myQueue.push(1);
     myQueue.pop();
     expect(myQueue.empty()).toBe(true);
+  });
+
+  test('enqueue 1, 2, 3, 4, 5 and dequeue two items', () => {
+    myQueue.push(1);
+    myQueue.push(2);
+    myQueue.push(3);
+    myQueue.push(4);
+    myQueue.push(5);
+    expect(myQueue.pop()).toBe(1);
+    expect(myQueue.pop()).toBe(2);
+    expect(myQueue.peek()).toBe(3);
   });
 });
