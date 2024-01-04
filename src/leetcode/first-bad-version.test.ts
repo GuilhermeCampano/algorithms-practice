@@ -5,7 +5,7 @@ describe('first-bad-version', () => {
     const isBadVersionApi = (n: number) => n >= 4;
 
     describe('WHEN there are 5 versions', () => {
-      it('THEN returns 4', () => {
+      test('THEN returns 4', () => {
         expect(firstBadVersion(isBadVersionApi)(5)).toBe(4);
       });
     });
@@ -15,7 +15,7 @@ describe('first-bad-version', () => {
     const isBadVersionApi = (n: number) => n >= 1;
 
     describe('WHEN there are 1 version', () => {
-      it('THEN returns 1', () => {
+      test('THEN returns 1', () => {
         expect(firstBadVersion(isBadVersionApi)(1)).toBe(1);
       });
     });
@@ -23,11 +23,15 @@ describe('first-bad-version', () => {
 
 
   describe('GIVEN the first bad version is 50', () => {
-    const isBadVersionApi = (n: number) => n >= 50;
+    const isBadVersionApi = jest.fn((version) => version >= 50);
 
     describe('WHEN there are 100 versions', () => {
-      it('THEN returns 1', () => {
+      test('THEN returns 50 AND should call isBadVersionApi 4 times ', () => {
         expect(firstBadVersion(isBadVersionApi)(100)).toBe(50);
+      });
+
+      test('AND only call the API 7 times ', () => {
+        expect(isBadVersionApi).toHaveBeenCalledTimes(7);
       });
     });
   });
