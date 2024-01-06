@@ -37,7 +37,6 @@ export function maxProfit2(prices: number[]): number {
         maxProfit = temporaryProfit;
       }
     }
-    console.log({minPrice, maxProfit}); 
   }
 
   return maxProfit;

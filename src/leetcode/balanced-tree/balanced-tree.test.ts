@@ -1,5 +1,4 @@
-import { isBalanced } from './balanced-tree';
-import { TreeNode } from '../datastructures/binary-search-tree';
+import { isBalanced, TreeNode } from './balanced-tree';
 
 describe('Balanced Binary Tree', () => {
 

@@ -1,4 +1,4 @@
-import { swap } from '../utils/swap';
+import { swap } from '../../utils/swap/swap';
 
 export function pivotHelper(array, start = 0) {
   const pivot = array[start];

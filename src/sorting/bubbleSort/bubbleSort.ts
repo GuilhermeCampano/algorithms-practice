@@ -1,4 +1,4 @@
-import { swap } from '../utils/swap';
+import { swap } from '../../utils/swap/swap';
 
 /**
  * Bubble Sort is a simple sorting algorithm that works by repeatedly swapping adjacent elements if they are in the wrong order;

@@ -1,4 +1,4 @@
-import { swap } from '../utils/swap';
+import { swap } from '../../utils/swap/swap';
 
 /**
  * Insertion Sort splits an arary into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
