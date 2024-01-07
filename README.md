@@ -1,3 +1,5 @@
+![Test](https://github.com/GuilhermeCampano/algorithms-practice/actions/workflows/test.yml/badge.svg)
+
 # Data Structures, Algorithms, and Problem Solving Patterns Practice
 
 This repository is dedicated to my practice of data structures, algorithms, and problem-solving patterns. It serves as a collection of various coding exercises and solutions that I've worked on to enhance my understanding and proficiency in these areas.
