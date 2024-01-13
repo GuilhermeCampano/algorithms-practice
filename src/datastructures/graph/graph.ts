@@ -1,3 +1,13 @@
+/*
+Graphs are a collection of nodes (vertices) and edges.
+For example, a social media platform can be modeled as a graph where users are nodes and friendships are edges.
+They model user relationships, drive features, and power recommendation systems. 
+Recommendation systems use graphs to suggest new connections based on shared vertices.
+
+I'm wondering if it's because of this data structure that YouTube keeps recommending NARUTO videos to me, 
+even though I've never watched a single episode of it. 🤔
+
+*/
 export class Graph {
   adjacencyList: { [key: string]: string[] } = {};
   constructor() {
