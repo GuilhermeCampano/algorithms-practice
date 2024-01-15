@@ -13,6 +13,7 @@ Can often avoid need for nested loops or O(N^2) operations with arrays/strings. 
 
 Useful for checking multiple pieces of data and need to compare them. See if they consist of the same individual pieces, such as array equality, anagrams, numbers consisting of same digits in just a different order.
 
+
 Example: sameFrequency.ts
 
 ## Multiple Pointers Pattern
@@ -24,6 +25,21 @@ This approach is particularly efficient when it comes to solving problems with m
 Overall, this technique is a powerful tool in any programmer's toolkit, and can be especially useful when dealing with large data sets or performance-critical applications.
 
 Example: countUniqueValues.ts
+
+## Runner (Fast and Slow pointers) Pattern
+
+The Runner technique, also known as the Fast and Slow pointers technique, is a problem-solving strategy often used in linked list or array problems. This technique involves creating two pointers that move through the data structure at different speeds. 
+
+This approach is particularly useful in several scenarios:
+
+1. **Detecting cycles**: If there's a cycle in the data structure, the fast pointer will eventually meet the slow pointer. If there's no cycle, the fast pointer will reach the end.
+
+2. **Finding the middle element**: The slow pointer moves one step at a time while the fast pointer moves two steps at a time. When the fast pointer reaches the end, the slow pointer will be at the middle.
+
+3. **Finding the start of a cycle**: After detecting a cycle, you can reset one pointer to the start of the data structure and move both pointers one step at a time. They will meet at the start of the cycle.
+
+4. **Finding the kth element from the end**: Move the fast pointer k steps ahead first, then move both pointers one step at a time. When the fast pointer reaches the end, the slow pointer will be k elements from the end.
+
 
 ## Sliding Window Pattern
 
